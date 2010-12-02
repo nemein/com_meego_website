@@ -30,3 +30,8 @@ nodes:
             title: Package comments
             content: <p>Welcome MeeGo</p>
             component: com_meego_comments
+        ocs:
+            title: OCS
+            content: <p>OCS</p>
+            component: com_meego_ocs
+
