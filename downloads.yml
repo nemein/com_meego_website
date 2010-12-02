@@ -15,7 +15,7 @@ components:
         - {type: github, user: nemein, repository: com_meego_website, branch: master}
     midgardmvc_helper_attachmentserver:
         - {type: github, user: bergie, repository: midgardmvc_helper_attachmentserver, branch: master}
-    midgardmvc_helper_attachmentserver:
+    com_meego_ocs:
         - {type: github, user: xfade, repository: com_meego_ocs, branch: master}
 nodes:
     title: MeeGo Community Applications
