@@ -11,6 +11,8 @@ components:
         git: https://github.com/nemein/com_meego_downloads.git
     com_meego_comments:
         git: https://github.com/nemein/com_meego_comments.git
+    com_meego_website:
+        git: https://github.com/nemein/com_meego_website.git
 nodes:
     title: MeeGo Community Applications
     content: <p>Welcome MeeGo</p>
