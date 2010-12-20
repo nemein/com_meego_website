@@ -11,6 +11,8 @@ components:
         - {type: github, user: nemein, repository: com_meego_downloads, branch: master}
     com_meego_comments:
         - {type: github, user: nemein, repository: com_meego_comments, branch: master}
+    com_meego_ratings:
+        - {type: github, user: nemein, repository: com_meego_ratings, branch: master}
     com_meego_website:
         - {type: github, user: nemein, repository: com_meego_website, branch: master}
     midgardmvc_helper_attachmentserver:
@@ -24,14 +26,17 @@ nodes:
     children:
         packages:
             title: MeeGo Community Packages
-            content: <p>Welcome MeeGo</p>
+            content: <p>MeeGo Packages</p>
             component: com_meego_packages
         comments:
             title: Package comments
-            content: <p>Welcome MeeGo</p>
+            content: <p>MeeGo Comments</p>
             component: com_meego_comments
+        ratings:
+            title: Package ratings
+            content: <p>MeeGo Ratings</p>
+            component: com_meego_ratings
         ocs:
             title: OCS
             content: <p>OCS</p>
             component: com_meego_ocs
-
