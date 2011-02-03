@@ -1,2 +1,8 @@
-version: 0.0.1
-template_injector: com_meego_website_injector
+process_injector: com_meego_website_injector
+routes:
+    meego_avatar:
+        path: /meego:avatar/{$username}.png
+        controller: com_meego_website_controllers_avatar
+        action: avatar
+        root_only: true
+
