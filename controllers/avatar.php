@@ -14,20 +14,26 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
     }
 
     /**
-     * Copy given attachment contents to given file
+     * Copy given file contents to given attachment
      *
-     * @param string $file file path
      * @param midgard_attachment $attachment attachment
-     * @param boolean $close close the pointers when done
+     * @param string $file file path
+     * @param stream_context $context context
      */
-    public static function copy_attachment_to_file(&$attachment, $file, $context)
+    public function copy_file_to_attachment($file, &$attachment, $context)
     {
-        // PONDER user PHPs copy() instead (but what if the BLOB is not in the filesystem?)
+
         $blob = midgardmvc_helper_attachmentserver_helpers::get_blob($attachment);
-        $src = $blob->get_handler('rb');
-        $dst = fopen($file, 'wb', $context);
-        return midgardmvc_helper_attachmentserver_helpers::file_pointer_copy($src, $dst, true);
+        $src = fopen($file, 'rb', false, $context);
+        if (!$src)
+        {
+            die('Could not open file');
+        }
+        $dst = $blob->get_handler('wb');
+        midgardmvc_helper_attachmentserver_helpers::file_pointer_copy($src, $dst, true);
+        $attachment->update();
     }
+
 
     public function get_avatar(array $args)
     {
@@ -51,7 +57,7 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
                     $opts = array('http' => array('proxy' => $this->proxy, 'request_fulluri' => true));
                 }
                 $context = stream_context_create($opts);
-                $this->copy_file_to_attachment('http://meego.com/sites/all/files/imagecache/user_pics/user_pics/picture-' . $employeenumber . '.png', $attachment);
+                $this->copy_file_to_attachment('http://meego.com/sites/all/files/imagecache/user_pics/user_pics/picture-' . $employeenumber . '.png', $attachment, $context);
                 $attachments[0] = $attachment;
             }
 
