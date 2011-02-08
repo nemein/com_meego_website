@@ -36,6 +36,25 @@
             </div>
             <!--<(search)>-->
             <!--<(account-menu)>-->
+
+            <div id="account-menu" class="links">
+              <div class="region region-account-links">
+                <div id="block-menu-menu-account-links" class="block block-menu region-odd odd region-count-1 count-1 block-">
+                  <div class="content">
+                    <ul class="menu" tal:condition="php:!midgardmvc_core::get_instance().authentication.is_user()"><li class="leaf first"><a href="/user/login" title="">Login</a></li>
+                      <li class="leaf last"><a href="/user/register" title="">Register</a></li>
+                    </ul>
+                    <ul class="menu" tal:condition="php:midgardmvc_core::get_instance().authentication.is_user()">
+                      <tal:block tal:define="user php:midgardmvc_core::get_instance().authentication.get_user(); username user/login">
+                        <li class="collapsed first active-trail"><a href="http://meego.com/user/me" title="" tal:content="username"></a></li>
+                        <li class="leaf last"><a href="/mgd:logout" title="">Logout</a></li>
+                      </tal:block>
+                    </ul>
+                  </div>
+                </div> <!-- /.block -->
+              </div> <!-- /.region -->
+            </div>
+
           </div>
         </div>
         <div id="main-wrapper">
