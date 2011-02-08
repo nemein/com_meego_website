@@ -17,21 +17,19 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
      * Copy given file contents to given attachment
      *
      * @param midgard_attachment $attachment attachment
-     * @param string $file file path
+     * @param string $src fopened file or url
      * @param stream_context $context context
      */
-    public function copy_file_to_attachment($file, &$attachment, $context)
+    public function copy_file_to_attachment($src, &$attachment, $context)
     {
 
         $blob = midgardmvc_helper_attachmentserver_helpers::get_blob($attachment);
-        $src = fopen($file, 'rb', false, $context);
-        if (!$src)
+        if ($src)
         {
-            die('Could not open file');
+            $dst = $blob->get_handler('wb');
+            midgardmvc_helper_attachmentserver_helpers::file_pointer_copy($src, $dst, true);
+            $attachment->update();
         }
-        $dst = $blob->get_handler('wb');
-        midgardmvc_helper_attachmentserver_helpers::file_pointer_copy($src, $dst, true);
-        $attachment->update();
     }
 
 
@@ -51,13 +49,13 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
         if ($user)
         {
             $attachments = $user->get_person()->list_attachments();
+
             //Check if attachement exists
             if (count($attachments) == 0)
             {
                 //fetch avatar from meego.com
                 $employeenumber = $user->get_person()->get_parameter('midgardmvc_core_services_authentication_ldap', 'employeenumber');
-                $attachment = $user->get_person()->create_attachment('meego:avatar', 'meego:avatar', 'image/png');
-                //Does not work through proxy as is.
+                $file = 'http://meego.com/sites/all/files/imagecache/user_pics/user_pics/picture-' . $employeenumber . '.png';
                 $opts = array();
 
                 if ($this->proxy)
@@ -65,8 +63,14 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
                     $opts = array('http' => array('proxy' => $this->proxy, 'request_fulluri' => true));
                 }
                 $context = stream_context_create($opts);
-                $this->copy_file_to_attachment('http://meego.com/sites/all/files/imagecache/user_pics/user_pics/picture-' . $employeenumber . '.png', $attachment, $context);
-                $attachments[0] = $attachment;
+                $src = fopen($file, 'rb', false, $context);
+                if ($src)
+                {
+                    $attachment = $user->get_person()->create_attachment('meego:avatar', 'meego:avatar', 'image/png');
+                    //Does not work through proxy as is.
+                    $this->copy_file_to_attachment($src, $attachment, $context);
+                    $attachments[0] = $attachment;
+                }
             }
 
             if (count($attachments) > 0)
