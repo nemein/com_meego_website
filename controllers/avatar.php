@@ -39,7 +39,15 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
     {
         $ar = array('login' => $args['username'], 'authtype' => 'LDAP');
 
-        $user = new midgard_user($ar);
+        try
+        {
+            $user = new midgard_user($ar);
+        }
+        catch(Exception $e)
+        {
+            //User does not exist, send 404.
+            throw new midgardmvc_exception_notfound("Avatar not found");
+        }
         if ($user)
         {
             $attachments = $user->get_person()->list_attachments();
