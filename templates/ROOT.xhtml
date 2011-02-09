@@ -41,11 +41,15 @@
               <div class="region region-account-links">
                 <div id="block-menu-menu-account-links" class="block block-menu region-odd odd region-count-1 count-1 block-">
                   <div class="content">
-                    <ul class="menu" tal:condition="php:!midgardmvc_core::get_instance().authentication.is_user()"><li class="leaf first"><a href="/user/login" title="">Login</a></li>
+                    <ul class="menu" tal:condition="php:!midgardmvc_core::get_instance().authentication.is_user()"><li class="leaf first">
+                    <tal:block tal:define="main_url php:midgardmvc.context.get_request(0).get_path(); url string:/mgd:login?redirect=$main_url">
+                      <a tal:attributes="href url" title="">Login</a>
+                    </tal:block>
+                      </li>
                       <li class="leaf last"><a href="/user/register" title="">Register</a></li>
                     </ul>
                     <ul class="menu" tal:condition="php:midgardmvc_core::get_instance().authentication.is_user()">
-                      <tal:block tal:define="user php:midgardmvc_core::get_instance().authentication.get_user(); username user/login">
+                      <tal:block tal:define="user php:midgardmvc_core::get_instance().authentication.get_user(); username php:user.login">
                         <li class="collapsed first active-trail"><a href="http://meego.com/user/me" title="" tal:content="username"></a></li>
                         <li class="leaf last"><a href="/mgd:logout" title="">Logout</a></li>
                       </tal:block>
