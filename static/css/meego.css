@@ -76,7 +76,7 @@ float:right;
 }
 #drupal_content, .no-sidebars #drupal_content {
 float:left;
-width:560px;
+/*width:560px;*/
 margin-left:0;
 margin-right:-960px;
 padding:0;
@@ -91,6 +91,7 @@ height:86px;
 }
 .with-navigation #drupal_content, .with-navigation .region-sidebar-first, .with-navigation .region-sidebar-second {
 margin-top:73px;
+float: left;
 }
 .front .with-navigation #drupal_content, .front .with-navigation .region-sidebar-first, .front .with-navigation .region-sidebar-second {
 margin-top:73px;
