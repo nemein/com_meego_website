@@ -24,10 +24,6 @@ nodes:
     content: <p>Welcome MeeGo</p>
     component: com_meego_downloads
     children:
-        packages:
-            title: MeeGo Community Packages
-            content: <p>MeeGo Packages</p>
-            component: com_meego_packages
         comments:
             title: Package comments
             content: <p>MeeGo Comments</p>

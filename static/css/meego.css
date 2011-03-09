@@ -90,9 +90,17 @@ padding:0;
 height:86px;
 }
 .with-navigation #drupal_content, .with-navigation .region-sidebar-first, .with-navigation .region-sidebar-second {
-margin-top:73px;
 float: left;
 }
+
+.with-navigation #drupal_content {
+margin-top:73px;
+}
+
+.with-navigation .region-sidebar-first, .with-navigation .region-sidebar-second {
+margin-top:25px;
+}
+
 .front .with-navigation #drupal_content, .front .with-navigation .region-sidebar-first, .front .with-navigation .region-sidebar-second {
 margin-top:73px;
 }
