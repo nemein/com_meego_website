@@ -1,4 +1,5 @@
 process_injector: com_meego_website_injector
+template_injector: com_meego_website_injector
 routes:
     meego_avatar:
         path: /meego:avatar/{$username}.png
