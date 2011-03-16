@@ -14,10 +14,6 @@ nodes:
     content: <p>Welcome MeeGo</p>
     component: com_meego_planet
     children:
-        about:
-            title: About Planet MeeGo
-            content: <p>This is how the system works...</p>
-            component: midgardmvc_core
         add:
             title: Add your blog
             content: <p>Anybody can request the aggregation of their blog at meego.com...</p>
