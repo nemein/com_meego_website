@@ -1,0 +1,6 @@
+<div class="breadcrumb" tal:condition="true: breadcrumb">
+  <tal:block tal:repeat="item breadcrumb">
+    <a tal:attributes="href item/localurl">${item/title}</a>
+    <span tal:condition="not: item/last" class="breadcrumb_separator"></span>
+  </tal:block>
+</div>
