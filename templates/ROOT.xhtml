@@ -4,12 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="http://meego.com/sites/all/themes/meego/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" media="screen" href="/midgardmvc-static/com_meego_website/css/meego.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/midgardmvc-static/com_meego_packages/css/packages.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/midgardmvc-static/eu_urho_widgets/js/jquery.rating/jquery.rating.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/midgardmvc-static/com_meego_ratings/css/cmr-ratings.css"/>
     <tal:block tal:replace="php: MIDCOM.head.print_elements()" />
-    <script src="/midgardmvc-static/eu_urho_widgets/js/jquery.rating/jquery.rating.pack.js" type="text/javascript"></script>
-    <title>MeeGo packages</title>
   </head>
   <body>
     <!-- page -->
@@ -87,44 +82,7 @@
 
               <div class="region region-sidebar-first column sidebar">
 
-                <div class="section">
-                    <div id="block-menu_block-1" class="block block-menu_block region-odd odd region-count-1 count-1 block-garage">
-
-                      <h2 class="title">Menu</h2>
-
-                      <div class="content">
-                        <div class="menu-block-1 menu-name-primary-links parent-mlid-0 menu-level-2">
-                          <ul class="menu">
-                              <li class="leaf first last menu-mlid-986 active"><a href="/" title="" class="active">Main page</a></li>
-                          </ul>
-                        </div>
-                        <div class="menu-block-1 menu-name-primary-links parent-mlid-0 menu-level-2">
-                          <ul class="menu">
-                              <li class="leaf first last menu-mlid-986"><a href="/search" title="">Search</a></li>
-                          </ul>
-                        </div>
-                      </div>
-
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div id="block-menu_block-1" class="block block-menu_block region-odd odd region-count-1 count-1 block-garage">
-
-                        <h2 class="title">
-                         <tal:block tal:condition="true: admin">
-                            <a tal:attributes="href category_admin_url" i18n:domain="com_meego_packages" i18n:translate="'title_categories'"></a>
-                         </tal:block>
-                         <tal:block tal:condition="not: admin" i18n:domain="com_meego_packages" i18n:translate="'title_categories'"></tal:block>
-                        </h2>
-                        <div class="content">
-                            <div class="menu-block-1 menu-name-primary-links parent-mlid-0 menu-level-2"
-                                tal:content="structure php:midgardmvc.templating.dynamic_load('com_meego_packages', 'categories', array())">
-                            </div>
-                        </div>
-
-                    </div> <!-- /.block -->
-                </div> <!-- /.section -->
+                <mgd:include>content-sidebar</mgd:include>
 
               </div><!-- /.region -->
 
