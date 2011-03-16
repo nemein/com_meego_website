@@ -12,7 +12,7 @@ components:
 nodes:
     title: Planet MeeGo
     content: <p>Welcome MeeGo</p>
-    component: midgardmvc_core
+    component: com_meego_planet
     children:
         about:
             title: About Planet MeeGo
