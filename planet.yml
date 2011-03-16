@@ -1,0 +1,20 @@
+services_dispatcher: appserv
+providers_component: midgardmvc
+providers_hierarchy: midgard2
+development_mode: true
+components:
+    midgardmvc_core:
+        - {type: github, user: midgardproject, repository: midgardmvc_core, branch: master}
+    com_meego_website:
+        - {type: github, user: nemein, repository: com_meego_website, branch: master}
+    com_meego_planet:
+        - {type: github, user: nemein, repository: com_meego_planet, branch: master}
+nodes:
+    title: Planet MeeGo
+    content: <p>Welcome MeeGo</p>
+    component: midgardmvc_core
+    children:
+        about:
+            title: About Planet MeeGo
+            content: <p>This is how the system works...</p>
+            component: midgardmvc_core
