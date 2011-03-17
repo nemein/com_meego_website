@@ -1,6 +1,6 @@
 services_dispatcher: appserv
 providers_component: midgardmvc
-providers_hierarchy: midgard2
+providers_hierarchy: configuration
 development_mode: true
 components:
     midgardmvc_core:
@@ -13,8 +13,3 @@ nodes:
     title: Planet MeeGo
     content: <p>Welcome MeeGo</p>
     component: com_meego_planet
-    children:
-        add:
-            title: Add your blog
-            content: <p>Anybody can request the aggregation of their blog at meego.com...</p>
-            component: midgardmvc_core
