@@ -1,11 +1,14 @@
 <?php
 class com_meego_website_controllers_avatar extends midgardmvc_helper_attachmentserver_controllers_base
 {
-    private $proxy="";
+    private $proxy = '';
 
     public function __construct(midgardmvc_core_request $request)
     {
         $this->request = $request;
+        if (!isset(midgardmvc_core::get_instance()->configuration->com_meego_website)) {
+            return;
+        }
         $settings = midgardmvc_core::get_instance()->configuration->com_meego_website;
         if (isset($settings['proxy']))
         {
@@ -35,7 +38,11 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
 
     public function get_avatar(array $args)
     {
-        $ar = array('login' => $args['username'], 'authtype' => 'LDAP');
+        $ar = array
+        (
+            'login' => $args['username'],
+            'authtype' => midgardmvc_core::get_instance()->configuration->services_authentication_authtype
+        );
 
         try
         {
