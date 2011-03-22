@@ -87,7 +87,7 @@ class com_meego_website_controllers_avatar extends midgardmvc_helper_attachments
             }
         }
         //redirect to default avatar
-        midgardmvc_core::get_instance()->head->relocate('http://meego.com/sites/all/themes/meego/images/peep_skate.png');
+        midgardmvc_core::get_instance()->head->relocate('http://meego.com/sites/all/themes/meego/images/user_picture_blank.png');
     }
 }
 ?>
