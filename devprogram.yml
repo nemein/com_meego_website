@@ -1,0 +1,18 @@
+services_dispatcher: appserv
+providers_component: midgardmvc
+providers_hierarchy: configuration
+
+development_mode: true
+
+components:
+    midgardmvc_core:
+        - {type: github, user: midgardproject, repository: midgardmvc_core, branch: master}
+    com_meego_website:
+        - {type: github, user: nemein, repository: com_meego_website, branch: master}
+    com_meego_devprogram:
+        - {type: github, user: nemein, repository: com_meego_devprogram, branch: master}
+
+nodes:
+    title: MeeGo Developer Device Programs
+    content: <p>Welcome to MeeGo DevProgram</p>
+    component: com_meego_devprogram
