@@ -13,6 +13,8 @@ components:
         - {type: github, user: nemein, repository: com_meego_comments, branch: master}
     com_meego_ratings:
         - {type: github, user: nemein, repository: com_meego_ratings, branch: master}
+    com_meego_ratings_caching:
+        - {type: github, user: nemein, repository: com_meego_ratings_caching, branch: master}
     com_meego_website:
         - {type: github, user: nemein, repository: com_meego_website, branch: master}
     midgardmvc_helper_attachmentserver:
@@ -31,7 +33,7 @@ nodes:
         ratings:
             title: Package ratings
             content: <p>MeeGo Ratings</p>
-            component: com_meego_ratings
+            component: com_meego_ratings_caching
         ocs:
             title: OCS
             content: <p>OCS</p>
