@@ -276,6 +276,8 @@ display:inline;
 #search label {
 font-size:.9em;
 }
+a.back,
+a.action,
 input.form-submit {
 cursor:pointer;
 background-color:#E3038D;
@@ -287,15 +289,23 @@ font-weight:bold;
 font-size:0.9em;
 font-family:Verdana, Tahoma, "DejaVu Sans", sans-serif;
 }
-input.form-submit:hover, input.teaser-button:hover {
+
+a.back:hover,
+a.action:hover,
+input.form-submit:hover,
+input.teaser-button:hover {
 background-color:#5DBA7C;
 border:2px solid #5DBA7C;
 color:#fff;
 }
+
+a.back:active,
+a.action:active,
 input.form-submit:active {
 background:#666;
 color:#fff;
 }
+
 div.teaser-button-wrapper {
 position:relative;
 z-index:1;
@@ -518,3 +528,12 @@ list-style:none;
 padding-left:5px;
 }
 
+div.section.login {
+margin: 2em 0 0 0;
+}
+
+div.section.login .errors {
+font-weight: bold;
+font-size: 1.1em;
+margin: 2em 0 2em 0;
+}
