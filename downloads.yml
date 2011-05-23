@@ -21,6 +21,8 @@ components:
         - {type: github, user: bergie, repository: midgardmvc_helper_attachmentserver, branch: master}
     com_meego_ocs:
         - {type: github, user: xfade, repository: com_meego_ocs, branch: master}
+    midgardmvc_ui_forms:
+        - {type: github, user: midgardproject, repository: midgardmvc_ui_forms, branch: master}
 nodes:
     title: MeeGo Community Applications
     content: <p>Welcome MeeGo</p>
@@ -38,3 +40,7 @@ nodes:
             title: OCS
             content: <p>OCS</p>
             component: com_meego_ocs
+        forms:
+            title: Forms
+            content: '<p>Form</p>'
+            component: midgardmvc_ui_forms
