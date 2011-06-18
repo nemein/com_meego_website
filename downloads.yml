@@ -20,7 +20,7 @@ components:
     midgardmvc_helper_attachmentserver:
         - {type: github, user: bergie, repository: midgardmvc_helper_attachmentserver, branch: master}
     com_meego_ocs:
-        - {type: github, user: xfade, repository: com_meego_ocs, branch: master}
+        - {type: github, user: nemein, repository: com_meego_ocs, branch: master}
     midgardmvc_ui_forms:
         - {type: github, user: midgardproject, repository: midgardmvc_ui_forms, branch: master}
 nodes:
