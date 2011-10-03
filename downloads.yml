@@ -7,8 +7,6 @@ components:
         - {type: github, user: midgardproject, repository: midgardmvc_core, branch: master}
     com_meego_packages:
         - {type: github, user: nemein, repository: com_meego_packages, branch: master}
-    com_meego_downloads:
-        - {type: github, user: nemein, repository: com_meego_downloads, branch: master}
     com_meego_comments:
         - {type: github, user: nemein, repository: com_meego_comments, branch: master}
     com_meego_ratings:
@@ -24,17 +22,17 @@ components:
     midgardmvc_ui_forms:
         - {type: github, user: midgardproject, repository: midgardmvc_ui_forms, branch: master}
 nodes:
-    title: MeeGo Community Applications
-    content: <p>Welcome MeeGo</p>
-    component: com_meego_downloads
+    title: Apps for MeeGo
+    content: <p>Apps for MeeGo</p>
+    component: com_meego_packages
     children:
         comments:
             title: Package comments
-            content: <p>MeeGo Comments</p>
+            content: <p>Comments</p>
             component: com_meego_comments
         ratings:
             title: Package ratings
-            content: <p>MeeGo Ratings</p>
+            content: <p>Ratings</p>
             component: com_meego_ratings_caching
         ocs:
             title: OCS
